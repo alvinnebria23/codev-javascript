@@ -32,12 +32,12 @@ function Solution({ menuConfig }: { menuConfig: MenuConfig }) {
         // Purpose: Return the markup for one configured menu entry.
         return (
           <div data-test-id={`first-level-${titleId}`} key={title}>
-            {/* Task #4: Display the configured menu title in its corresponding div. */}
+            {/* Task #4.1: Display the configured menu title in its corresponding div. */}
             {title}
             {/* Task #6: Omit the button and submenu entirely when there are no subitems. */}
             {hasSubItems && (
               <>
-                {/* Task #4: Render the required button only for entries with subitems. */}
+                {/* Task #4.2: Render the required button only for entries with subitems. */}
                 <button
                   type="button"
                   data-test-id={`button-${titleId}`}
@@ -46,14 +46,14 @@ function Solution({ menuConfig }: { menuConfig: MenuConfig }) {
                     setExpandedTitle(isExpanded ? null : title);
                   }}
                 >
-                  {/* Task #4: Label the button according to this entry's expanded state. */}
+                  {/* Task #4.2: Label the button according to this entry's expanded state. */}
                   {isExpanded ? 'Hide' : 'Expand'}
                 </button>
-                {/* Task #7: Add the submenu to the DOM only while its entry is expanded. */}
-                {/* Task #4: Give the submenu list its required title-based test ID. */}
+                {/* Task #7: Keep a closed submenu out of the DOM rather than hiding it with CSS. */}
+                {/* Task #4.3: Give the submenu list its required title-based test ID. */}
                 {isExpanded && (
                   <ul data-test-id={`ul-${titleId}`}>
-                    {/* Task #4: Render submenu entries in the configured order. */}
+                    {/* Task #4.4: Render submenu entries in the configured order. */}
                     {subItems?.map((subItem) => (
                       <li
                         data-test-id={`li-${titleId}-${subItem.toLowerCase()}`}

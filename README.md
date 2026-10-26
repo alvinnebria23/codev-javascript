@@ -73,8 +73,8 @@ This section has moved here: [https://vitejs.dev/guide/troubleshooting.html](htt
 
 **test**
 
-1. the outermost. tag of the component is a div with a class of menu-wrapper. Initially it will contain nothing, and your task is to create the code that will display the side menu there.
-2. the component will receive a property named menuConfig which will contain the configuration of the side menu data:
+1. The outermost tag of the component is a div with a class of menu-wrapper. Initially it will contain nothing, and your task is to create the code that will display the side menu there.
+2. The component will receive a property named menuConfig which will contain the configuration of the side menu data:
 
 	 ```ts
 	 const menuConfig = [
@@ -103,17 +103,17 @@ This section has moved here: [https://vitejs.dev/guide/troubleshooting.html](htt
 	 type MenuConfig = Array<MenuItem>
 	 ```
 
-1. Every menu item should be displayed inside a separate corresponding div. This div should have a dynamically created attribute, data-test-id, in the form: first-level-{lowercase-title-name-here}. So, for example, if some MenuItem contained a title named Home, the div should have a data-test-id containing first-level-home.
-2. Every div from the previous point should contain within it:
+3. Every menu item should be displayed inside a separate corresponding div. This div should have a dynamically created attribute, data-test-id, in the form: first-level-{lowercase-title-name-here}. So, for example, if some MenuItem contained a title named Home, the div should have a data-test-id containing first-level-home.
+4. Every div from the previous point should contain within it:
 
-	 - title. For example for a MenuItem with the title Home, the text Home should appear in this div.
-	 - button with a dynamic data-test-id in the form: button-{lowercase-title-name-here} (for example, button-home). The button should only be displayed when there are subItems for the given menu item. When clicking button, the submenu with subItems {the ul list described in the next point} should appear (be added to the DOM) if it is hidden, and should disappear (be removed from the DOM) if it is expanded. The text inside the button should be Expand when the given menu is not expanded, and Hide if the menu is already been expanded.
-	 - ul list. The ul tag should have a data-test-id in the form: ul-{lowercase-title-here}, so if we had a list for the Home title, the data-test-id should be ul-home.
-	 - li tags inside the aforementioned ul tag. Each li should have a data-test-id in the form: li-{lowercase-title-name-here}-{lowercase-subitem-name-here}. SO, for example, for the HOme title and subitems Main and Services, the li data-test-ids should be li-home-main and li-home-services. Inside every li tag there should be a subItem name (taken from the array subItems) from the corresponding MenuItem). The display state of these submenu lists is controlled by the aforementioned corresponding buttons.
+	 4.1. title. For example for a MenuItem with the title Home, the text Home should appear in this div.
+	 4.2. button with a dynamic data-test-id in the form: button-{lowercase-title-name-here} (for example, button-home). The button should only be displayed when there are subItems for the given menu item. When clicking button, the submenu with subItems {the ul list described in the next point} should appear (be added to the DOM) if it is hidden, and should disappear (be removed from the DOM) if it is expanded. The text inside the button should be Expand when the given menu is not expanded, and Hide if the menu is already been expanded.
+	 4.3. ul list. The ul tag should have a data-test-id in the form: ul-{lowercase-title-here}, so if we had a list for the Home title, the data-test-id should be ul-home.
+	 4.4. li tags inside the aforementioned ul tag. Each li should have a data-test-id in the form: li-{lowercase-title-name-here}-{lowercase-subitem-name-here}. SO, for example, for the HOme title and subitems Main and Services, the li data-test-ids should be li-home-main and li-home-services. Inside every li tag there should be a subItem name (taken from the array subItems) from the corresponding MenuItem). The display state of these submenu lists is controlled by the aforementioned corresponding buttons.
 
-1. Only one submenu should be in the expanded state at any time. If one of the submenus is open and then some other menu item button is clicked, the previously expanded submenu should be hidden and the new one should appear.
-2. of no subItems are available for some MenuItem (undefined subItems property for Menu Item or an empty array), then no ul list should be available, and also no Expand button should be available.
-3. Tests will follow elements by their data-test-id, so invisible elements should not be rendered. Do not control elements’visibilit using CSS properties.
+5. Only one submenu should be in the expanded state at any time. If one of the submenus is open and then some other menu item button is clicked, the previously expanded submenu should be hidden and the new one should appear.
+6. of no subItems are available for some MenuItem (undefined subItems property for Menu Item or an empty array), then no ul list should be available, and also no Expand button should be available.
+7. Tests will follow elements by their data-test-id, so invisible elements should not be rendered. Do not control elements’visibilit using CSS properties.
 
 Assumptions
 
