@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# GitHub Codespaces ♥️ React
+# codev-javascript
 
 Welcome to your shiny new Codespace running React! We've got everything fired up and running for you to explore React.
 
@@ -47,8 +46,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 You can learn more in the [Vite documentation](https://vitejs.dev/guide/).
 
 To learn Vitest, a Vite-native testing framework, go to [Vitest documentation](https://vitest.dev/guide/)
-	title: string;
-	subItems?: Array<string>;
 
 ### Code Splitting
 
@@ -59,10 +56,6 @@ This section has moved here: [https://sambitsahoo.com/blog/vite-code-splitting-t
 This section has moved here: [https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer](https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer)
 
 ### Making a Progressive Web App
-
-	{ title: 'Home' },
-	{ title: 'Services', subItems: ['Cooking', 'Cleaning'] },
-	{ title: 'Contact', subItems: ['Phone', 'Mail'] },
 
 This section has moved here: [https://vitejs.dev/guide/build.html#advanced-base-options](https://vitejs.dev/guide/build.html#advanced-base-options)
 
@@ -248,6 +241,3 @@ export default function Autocomplete() {
 	);
 }
 ```
-=======
-# codev-javascript
->>>>>>> d41d008e5463b9277d1e3d6e3404d9281b3f921b
