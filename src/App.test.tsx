@@ -22,6 +22,16 @@ test('renders configured menu items with the required test ids', () => {
   expect(byTestId(container, 'button-home')).toBeNull();
 });
 
+test('renders the supplied default menu when no config prop is passed', () => {
+  const { container } = render(<Solution />);
+
+  expect(byTestId(container, 'first-level-home')?.textContent).toContain('Home');
+  expect(byTestId(container, 'first-level-services')).not.toBeNull();
+  expect(byTestId(container, 'first-level-contact')).not.toBeNull();
+  expect(byTestId(container, 'button-services')?.textContent).toBe('Expand');
+  expect(byTestId(container, 'button-contact')?.textContent).toBe('Expand');
+});
+
 test('expands and collapses a submenu, rendering its item test ids', () => {
   const { container } = render(<Solution menuConfig={menuConfig} />);
   const serviceButton = byTestId(container, 'button-services')!;

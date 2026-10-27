@@ -12,8 +12,25 @@ type MenuItem = {
 // Purpose: Represent the complete collection of menu entries passed into Solution.
 type MenuConfig = Array<MenuItem>;
 
+// Task #2: Provide the requested menu data for the app when no menuConfig prop is supplied.
+const menuConfig: MenuConfig = [
+  {
+    title: 'Home',
+  },
+  {
+    title: 'Services',
+    subItems: ['Cooking', 'Cleaning'],
+  },
+  {
+    title: 'Contact',
+    subItems: ['Phone', 'Mail'],
+  },
+];
+
 // Task #2: Accept menuConfig as the component input with its declared TypeScript type.
-function Solution({ menuConfig }: { menuConfig: MenuConfig }) {
+function Solution(
+  { menuConfig: configuredMenu = menuConfig }: { menuConfig?: MenuConfig } = {},
+) {
   // Task #5: Start with no expanded submenu; one title tracks the sole open submenu.
   const [expandedTitle, setExpandedTitle] = useState<string | null>(null);
 
@@ -21,7 +38,7 @@ function Solution({ menuConfig }: { menuConfig: MenuConfig }) {
   return (
     <div className="menu-wrapper">
       {/* Task #3: Create one first-level div for every configured menu entry. */}
-      {menuConfig.map(({ title, subItems }) => {
+      {configuredMenu.map(({ title, subItems }) => {
         // Purpose: Convert the title to lowercase for the required data-test-id values.
         const titleId = title.toLowerCase();
         // Task #6: Treat missing or empty subItems as having no submenu controls or list.
